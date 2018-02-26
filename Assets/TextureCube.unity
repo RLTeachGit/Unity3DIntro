@@ -285,6 +285,14 @@ Prefab:
       propertyPath: m_Name
       value: CubeWithNormalMap
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b55131411a947094aae914fd586b7ee5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b55131411a947094aae914fd586b7ee5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b55131411a947094aae914fd586b7ee5, type: 3}
   m_IsPrefabParent: 0
@@ -401,6 +409,27 @@ Transform:
   m_Father: {fileID: 1607605841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 153.3, y: 0, z: 0}
+--- !u!1 &1696649854 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: b55131411a947094aae914fd586b7ee5, type: 3}
+  m_PrefabInternal: {fileID: 997817858}
+--- !u!95 &1696649858
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1696649854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4e1bc2885473466081c7ce16aa33969, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1914647014
 GameObject:
   m_ObjectHideFlags: 0
