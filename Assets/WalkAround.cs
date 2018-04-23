@@ -31,7 +31,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson {
         // Update is called once per frame
         void Update() {
             Vector3 tDistance = WayPoints[mIndex].transform.position- transform.position;
-            tDistance.y = 0;
 
             if (tDistance.magnitude>1.0f) {     //Check for arrival
                 character.Move(tDistance, false, false);
