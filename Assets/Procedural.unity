@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -184,7 +184,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 548297707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1770656153}
   - component: {fileID: 1770656152}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CodeMadeMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,7 +217,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edaed4aa9bc0214eb97aa06b9559459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mat: {fileID: 2100000, guid: d0ff967ec1f9f4599a3c80b9c172c0f5, type: 2}
+  Mat: {fileID: 2100000, guid: 88297fa6c52c845c5b8de61f42f5a76d, type: 2}
+  Speed: 0
+  Scale: 1
+  MapX: 1
+  MapY: 1
+  AngleY: 0
+  AngleX: 0
 --- !u!4 &1770656153
 Transform:
   m_ObjectHideFlags: 0
