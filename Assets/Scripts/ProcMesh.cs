@@ -97,10 +97,11 @@ public class ProcMesh : MonoBehaviour {
         mMF.mesh.uv = mUVs;
         mMF.mesh.triangles = mTriangles;
 
-        for(int i=0;i<mVertices.Length;i++) {
-            Debug.DrawRay(mVertices[i], mNormals[i], Color.red, 2.0f);
-        }
+        MeshDebug.DebugDrawVertexNormals(transform.position, mMF.mesh,Color.red);
+        MeshDebug.DebugDrawTriangleNormals(transform.position,mMF.mesh, Color.green);
 
         tTime += Time.deltaTime*Speed;
     }
+
+
 }
