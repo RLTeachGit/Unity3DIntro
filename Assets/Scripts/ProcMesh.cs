@@ -71,8 +71,8 @@ public class ProcMesh : MonoBehaviour {
     float tTime=0;
 	// Update is called once per frame
 	void Update () {
+        Control();
         Vector2 tOffset = new Vector3(Mathf.Cos(tTime),Mathf.Sin(tTime));
-//        Vector3 tOffset = Vector3.zero;
 
         mMF.mesh.Clear();   //Clear buffers
 
@@ -103,5 +103,16 @@ public class ProcMesh : MonoBehaviour {
         tTime += Time.deltaTime*Speed;
     }
 
+    private void Control() {
+        if(Input.GetMouseButton(1)) {
+            Vector2 tMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            if(Mathf.Abs(tMousePos.x)<=1.0 && Mathf.Abs(tMousePos.y)<=1.0) {
+                tMousePos.x = Mathf.Clamp(tMousePos.x * 2 - 1, -1, 1);
+                tMousePos.y = Mathf.Clamp(tMousePos.y * 2 - 1, -1, 1);
+                AngleY = 90 * tMousePos.x;
+                AngleX = 90 * tMousePos.y;
+            }
+        }
+    }
 
 }

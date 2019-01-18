@@ -6,21 +6,23 @@ public class MeshDebug : MonoBehaviour {
 
     public bool VertexNormals = true;
     public bool TriNormals = true;
+    static float TimeOut = 0.5f;
 
 
     MeshFilter mMF;
-    public void Start() {
-        mMF = GetComponent<MeshFilter>();
-    }
 
     public void Update() {
-        if(VertexNormals) MeshDebug.DebugDrawVertexNormals(transform.position,mMF.mesh, Color.red);
-        if(TriNormals) MeshDebug.DebugDrawTriangleNormals(transform.position,mMF.mesh, Color.green);
+        if(mMF!=null) {
+            if (VertexNormals) MeshDebug.DebugDrawVertexNormals(transform.position, mMF.mesh, Color.red);
+            if (TriNormals) MeshDebug.DebugDrawTriangleNormals(transform.position, mMF.mesh, Color.green);
+        } else {
+            mMF = GetComponent<MeshFilter>();
+        }
     }
 
     public static void DebugDrawVertexNormals(Vector3 vOrigin, Mesh vMesh, Color vColour) {
         for (int i = 0; i < vMesh.vertexCount; i++) {
-            Debug.DrawRay(vMesh.vertices[i]+vOrigin, vMesh.normals[i], vColour, 2.0f);
+            Debug.DrawRay(vMesh.vertices[i]+vOrigin, vMesh.normals[i], vColour, TimeOut);
         }
     }
 
@@ -35,7 +37,7 @@ public class MeshDebug : MonoBehaviour {
             Vector3 tV1 = vMesh.vertices[vMesh.triangles[tTriIndex + 1]]-vMesh.vertices[vMesh.triangles[tTriIndex]];
             Vector3 tV2 = vMesh.vertices[vMesh.triangles[tTriIndex + 2]]-vMesh.vertices[vMesh.triangles[tTriIndex + 1]];
             Vector3 tNormal = Vector3.Cross(tV1,tV2).normalized;
-            Debug.DrawRay(tCenter, tNormal, vColour, 2.0f);
+            Debug.DrawRay(tCenter, tNormal, vColour, TimeOut);
         }
     }
 }
