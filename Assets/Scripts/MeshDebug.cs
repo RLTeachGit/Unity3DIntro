@@ -22,7 +22,10 @@ public class MeshDebug : MonoBehaviour {
 
     public static void DebugDrawVertexNormals(Vector3 vOrigin, Quaternion vRotation, Mesh vMesh, Color vColour) {
         for (int i = 0; i < vMesh.vertexCount; i++) {
-            Debug.DrawRay(vMesh.vertices[i]+vOrigin, vRotation*vMesh.normals[i], vColour, TimeOut);
+            Vector3 tNormal = vRotation * vMesh.normals[i];
+            if(Vector3.Dot(tNormal,Camera.main.transform.forward)<0) {
+                Debug.DrawRay(vMesh.vertices[i] + vOrigin, vRotation * vMesh.normals[i], vColour, TimeOut);
+            }
         }
     }
 
@@ -37,7 +40,9 @@ public class MeshDebug : MonoBehaviour {
             Vector3 tV1 = vMesh.vertices[vMesh.triangles[tTriIndex + 1]]-vMesh.vertices[vMesh.triangles[tTriIndex]];
             Vector3 tV2 = vMesh.vertices[vMesh.triangles[tTriIndex + 2]]-vMesh.vertices[vMesh.triangles[tTriIndex + 1]];
             Vector3 tNormal = Vector3.Cross(tV1,tV2).normalized;
-            Debug.DrawRay(tCenter, vRotation*tNormal, vColour, TimeOut);
+            if (Vector3.Dot(tNormal, Camera.main.transform.forward) <0) {
+                Debug.DrawRay(tCenter, vRotation * tNormal, vColour, TimeOut);
+            }
         }
     }
 }

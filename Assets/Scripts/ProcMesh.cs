@@ -7,8 +7,6 @@ public class ProcMesh : MonoBehaviour {
     MeshFilter mMF;
     MeshRenderer mMR;
 
-    public Material Mat;
-
 
     Vector3[]   mVertices =     new Vector3[4];     //Points in 3D space where vertices are
     Vector3[]   mNormals =      new Vector3[4];      //Normals at Vertices
@@ -47,6 +45,7 @@ public class ProcMesh : MonoBehaviour {
 
         mMF = gameObject.AddComponent<MeshFilter>();        //Reads the mesh
         mMR = gameObject.AddComponent<MeshRenderer>();      //Renders the mesh
+        Debug.Assert((mMR.material = Resources.Load<Material>("Materials/RedBlue")) != null); //Load material from Resources folder
         mMF.mesh = new Mesh();      //make mesh in code
 
         //4 vertices to make a Square
@@ -81,7 +80,6 @@ public class ProcMesh : MonoBehaviour {
         mVertices[2] = V3 * Scale;
         mVertices[3] = V4 * Scale;
 
-        mMR.material = Mat;
         mMF.mesh.vertices = mVertices;
 
         mNormals[0] = Quaternion.AngleAxis(AngleX, mRotationAxisX) * Quaternion.AngleAxis(-AngleY, mRotationAxisY) * tNormal;     //Vertext normals, they change how light is affected
